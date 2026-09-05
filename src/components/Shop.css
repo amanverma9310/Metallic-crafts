@@ -1,0 +1,191 @@
+.shop-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  /* Prevents this grid item's content from forcing the grid track
+     wider than the viewport (grid items default to min-width: auto,
+     not 0, which is the #1 cause of "content overflowing the screen"
+     inside CSS Grid layouts). */
+  min-width: 0;
+}
+
+.filters {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+  min-width: 0;
+}
+
+.filter-group {
+  margin-bottom: 2rem;
+}
+
+.filter-group h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.filter-option input[type="checkbox"],
+.filter-option input[type="radio"] {
+  cursor: pointer;
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.filter-option label {
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.price-range {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.price-range input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  min-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS — filters sidebar + product grid.
+   Mobile-first, min-width only: each rule cleanly overrides the
+   previous one, with no overlapping ranges at the boundaries.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Base / smallest phones: 320px+ — single column, stacked filters
+   above the grid (this is the default until a min-width below is
+   met, no media query needed) */
+.shop-container {
+  grid-template-columns: 1fr;
+}
+
+.products-grid {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.filters {
+  position: static;
+  padding: 1rem;
+}
+
+.price-range {
+  flex-direction: column;
+}
+
+/* Mobile phones: 375px / 390px / 414px — two columns fit comfortably */
+@media (min-width: 375px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .price-range {
+    flex-direction: row;
+  }
+}
+
+/* Large phones: 480px+ */
+@media (min-width: 480px) {
+  .filters {
+    padding: 1.25rem;
+  }
+}
+
+/* Small tablets: 600px+ */
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* iPads / tablets: 768px+ — filters move to a sticky sidebar */
+@media (min-width: 768px) {
+  .shop-container {
+    grid-template-columns: 220px 1fr;
+    gap: 1.5rem;
+  }
+
+  .filters {
+    position: sticky;
+    top: 90px;
+  }
+}
+
+/* Laptops: 1024px+ */
+@media (min-width: 1024px) {
+  .shop-container {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+/* Desktop: 1280px+ */
+@media (min-width: 1280px) {
+  .shop-container {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large desktop: 1440px+ */
+@media (min-width: 1440px) {
+  .shop-container {
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+  }
+
+  .products-grid {
+    gap: 1.75rem;
+  }
+}
+
+/* Very large screens: 1920px+ */
+@media (min-width: 1920px) {
+  .shop-container {
+    grid-template-columns: 320px 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+
+  .filters {
+    padding: 2rem;
+  }
+}

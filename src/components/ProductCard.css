@@ -1,0 +1,264 @@
+.product-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  /* This is a grid item inside .products-grid / .grid — without this,
+     its default min-width: auto lets its content force the grid
+     track (and the whole row) wider than the viewport. */
+  min-width: 0;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image {
+  width: 100%;
+  height: clamp(140px, 30vw, 250px);
+  background: #f3f4f6;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+
+.product-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--danger);
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.product-info {
+  padding: clamp(0.9rem, 3vw, 1.5rem);
+}
+
+.product-brand {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+.product-name {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  line-height: 1.4;
+  min-height: 2.2rem;
+  overflow-wrap: break-word;
+}
+
+.product-rating {
+  color: #fbbf24;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-price {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.original-price {
+  font-size: 1rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.product-actions .btn {
+  font-size: 0.875rem;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wishlist-btn {
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  padding: 0.5rem 0.75rem;
+}
+
+.wishlist-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS — mobile-first, min-width only, so each
+   rule cleanly overrides the previous one with no overlapping
+   ranges at the boundaries.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Base / smallest phones: 320px+ (no media query needed — this is
+   the default the browser uses until a min-width below is met) */
+.product-info {
+  padding: 0.75rem;
+}
+
+.product-name {
+  font-size: 0.85rem;
+  min-height: 2rem;
+}
+
+.product-actions {
+  grid-template-columns: 1fr;
+}
+
+.wishlist-btn {
+  width: 100%;
+}
+
+.product-badge {
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+/* Phones: 375px / 390px / 414px */
+@media (min-width: 375px) {
+  .product-info {
+    padding: 0.9rem;
+  }
+
+  .product-name {
+    font-size: 0.95rem;
+    min-height: 2.2rem;
+  }
+
+  .product-badge {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Large phones: 480px+ */
+@media (min-width: 480px) {
+  .product-actions {
+    grid-template-columns: 1fr auto;
+  }
+
+  .wishlist-btn {
+    width: auto;
+  }
+
+  .product-badge {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Small tablets: 600px+ */
+@media (min-width: 600px) {
+  .product-image {
+    height: 200px;
+  }
+}
+
+/* iPads / tablets: 768px+ */
+@media (min-width: 768px) {
+  .product-image {
+    height: 220px;
+  }
+
+  .product-name {
+    min-height: 2.4rem;
+  }
+}
+
+/* Laptops: 1024px+ */
+@media (min-width: 1024px) {
+  .product-card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* Desktop: 1280px+ */
+@media (min-width: 1280px) {
+  .product-image {
+    height: 240px;
+  }
+}
+
+/* Large desktop: 1440px+ */
+@media (min-width: 1440px) {
+  .product-image {
+    height: 260px;
+  }
+
+  .product-name {
+    font-size: 1.1rem;
+  }
+}
+
+/* Very large screens: 1920px+ */
+@media (min-width: 1920px) {
+  .product-image {
+    height: 300px;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 1.6rem;
+  }
+}
+
+/* Touch devices: disable hover-only zoom/lift so tapping feels normal */
+@media (hover: none) and (pointer: coarse) {
+  .product-card:hover {
+    transform: none;
+    box-shadow: var(--shadow);
+  }
+
+  .product-card:hover .product-image img {
+    transform: none;
+  }
+}

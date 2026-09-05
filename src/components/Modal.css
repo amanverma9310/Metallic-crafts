@@ -1,0 +1,82 @@
+.modal {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border-radius: 1rem;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+  margin: 1rem 0;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.modal-close:hover {
+  color: var(--dark);
+}
+
+.modal-title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  margin-bottom: 1rem;
+  color: var(--dark);
+  padding-right: 1.5rem;
+}
+
+.modal-subtitle {
+  margin-bottom: 1.5rem;
+  color: #6b7280;
+}
+
+.modal-footer-note {
+  margin-top: 1rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.modal-footer-note a {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.demo-account-box {
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+}

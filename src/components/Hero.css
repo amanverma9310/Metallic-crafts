@@ -1,0 +1,39 @@
+.hero {
+  color: white;
+  padding: clamp(3rem, 10vw, 6rem) clamp(1rem, 4vw, 2rem);
+  text-align: center;
+  min-height: clamp(360px, 55vw, 550px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(0, 0, 0, 0.8) 80%,
+      #0b0f1a 100%
+    ),
+    url("../assets/background1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  animation: slideIn 0.6s ease;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  margin-bottom: 2rem;
+  color: #d1d5db;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,246 @@
+nav {
+  background: linear-gradient(135deg, #3d3a3a 0%, #0a0a0a 100%);
+  color: white;
+  padding: 1.35rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  color: var(--primary);
+}
+
+.metallic {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 2rem);
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-right {
+  display: flex;
+  gap: clamp(0.3rem, 1.5vw, 0.75rem);
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.15rem 0;
+}
+
+.nav-right::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-right .btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(0.6rem, 2vw, 1.2rem);
+  font-size: clamp(0.75rem, 1.6vw, 1rem);
+}
+
+.nav-username {
+  color: white;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.admin-btn-purple {
+  background: #8b5cf6;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  transition: var(--transition);
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cart-icon:hover {
+  color: var(--primary);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--danger);
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  width: 28px;
+  flex-shrink: 0;
+  /* Leftmost item in the row, ahead of the logo */
+  order: -1;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.menu-toggle:hover .bar {
+  background: var(--primary);
+}
+
+/* Tablets and phones: collapse the nav-links into a dropdown menu */
+@media (max-width: 860px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #1f2937;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1rem;
+    z-index: 999;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.85rem 0.5rem;
+    border-bottom: 1px solid #374151;
+  }
+
+  .nav-username {
+    display: none;
+  }
+
+  /* Cluster the action buttons together on the right, leaving the
+     hamburger (far left) and logo (next to it) on the left. */
+  .nav-right {
+    margin-left: auto;
+  }
+
+  /* Hide the "Admin Panel" shortcut button on phones/tablets to save
+     space in the crowded action row; the admin area is still reachable
+     by navigating to /admin directly once logged in. */
+  .admin-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 1rem 0.85rem;
+  }
+
+  .nav-container {
+    gap: 0.5rem;
+  }
+
+  .nav-right {
+    gap: 0.3rem;
+  }
+
+  .logo {
+    gap: 0.4rem;
+  }
+
+  .metallic {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-text {
+    display: none;
+  }
+}
+
+@media (max-width: 340px) {
+  .nav-right .btn {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.7rem;
+  }
+
+  .cart-icon {
+    font-size: 1.1rem;
+  }
+}
