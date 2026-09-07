@@ -10,5 +10,5 @@ import react from "@vitejs/plugin-react";
 // passes it to <BrowserRouter basename>, so routing keeps working either way.
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: '/Metallic-crafts/'
 });
