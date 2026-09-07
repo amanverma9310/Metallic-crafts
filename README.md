@@ -65,4 +65,4 @@ in `src/data/products.js` — edit it directly to change names, prices, or image
 - Image loading failures fall back to a placeholder (`ProductImage` component),
   replacing the old `imgError()` function.
 - Unused images from the original `img/` folder (not referenced by any product or the
-  UI) were left out of the React build to keep the bundle lean.
+  UI) were left out of the React build to keep the bundle hii lean.
